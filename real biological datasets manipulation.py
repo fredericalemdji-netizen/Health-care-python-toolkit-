@@ -73,5 +73,5 @@ print(mean*100, "%", mean.shape)
 sort = np.sort(res_sum)
 print(
 f"the sorted values  = {sort}\n"
-f"the mean value {np.median(res_sum)}\n"
+f"the median value is {np.median(res_sum)}\n"
 f"the min and max values respectively {np.min(res_sum)} & {np.max(res_sum)}")
