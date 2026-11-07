@@ -35,6 +35,24 @@ is_at = (encoded == 0) | (encoded == 3)
 GC_content = (np.sum(is_gc)/encoded.size)*100
 res_sum = (np.sum(res, axis = 1)/ res.shape[1])*100
 print(res_sum, np.mean(res_sum))
+var = np.var(res_sum)
+std = np.std(res_sum)
+
+copy = res_sum.copy()
+copy[-1] = 60
+m = np.std(copy)
+print(m)
+
+
+q = []
+for _ in range(101):
+	q.append(_)
+s = np.linspace(0, 1, 11)
+per = np.percentile(res_sum, q)
+quan =  np.quantile(res_sum, s)
+#print(per, quan)
+IQR = per[75] - per[25]
+print("the Interquartile range is", IQR)
 
 AT_content = (np.sum(is_at)/encoded.size)*100
 
@@ -45,10 +63,10 @@ print(f"the GC content of the DNA mitochondrion of falciparium plasmodium is {GC
 
 
 rev_cDNA = (3 - encoded)[::-1]
-print("the reverse complementary DNA is", rev_cDNA[:10])
+#print("the reverse complementary DNA is", #rev_cDNA[:10])
 cdna = 3 - encoded
-print("the DNA is", encoded[:10])
-print(encoded[-10:])
+#print("the DNA is", encoded[:10])
+#print(encoded[-10:])
 
 
 rna_let = np.array(["A", "C", "G", "U" ])
@@ -63,15 +81,16 @@ print("the mRNA strand", RNA[:10])
 print(valid_bases[np.argmax(enc_seq, axis = 1)])
 
 
-test = RNA[:].reshape(-1, 3)
-print(test)
-print(test.shape)
+codons = RNA.reshape(-1, 3)
+print(codons)
+
 
 #calculating the mean of the number of nucleotides in other word 
 mean = np.mean(enc_seq, axis = 0)
-print(mean*100, "%", mean.shape)
+print("the percentage composition of each base nucleotide is, mean*100, "%", "respectively")
 sort = np.sort(res_sum)
 print(
 f"the sorted values  = {sort}\n"
 f"the median value is {np.median(res_sum)}\n"
-f"the min and max values respectively {np.min(res_sum)} & {np.max(res_sum)}")
+f"the min and max values respectively {np.min(res_sum)} & {np.max(res_sum)}"
+f"the variance and standard deviation are {var} & {std} respectively")
