@@ -64,7 +64,7 @@ print("the Interquartile range is", IQR)
 AT_content = (np.sum(is_at)/encoded.size)*100
 
 
-print(f"the GC content of the DNA mitochondrion of falciparium plasmodium is {GC_content}%, the AT content of the DNA mitochondrion of plasmodium falciparium is {AT_content}%")
+print(f"the GC content of the DNA mitochondrion of Plasmodium falciparum is {GC_content}%, the AT content of the DNA mitochondrion of plasmodium falciparium is {AT_content}%")
 
 #7 bringing out the reverse complementary strand of the DNA of the motochondrion of plasmodium falciparium
 
@@ -96,8 +96,14 @@ print(codons)
 mean = np.mean(enc_seq, axis = 0)
 print("the percentage composition of each base nucleotide is, mean*100, "%", "respectively")
 sort = np.sort(res_sum)
+
+#Place holder every base given probability of 0.3 (real model comes later)
+log_prob = np.log(np.full(codons.shape, 0.3))
+loga_likelihood = np.sum(log_prob)
+
 print(
 f"the sorted values  = {sort}\n"
 f"the median value is {np.median(res_sum)}\n"
 f"the min and max values respectively {np.min(res_sum)} & {np.max(res_sum)}"
 f"the variance and standard deviation are {var} & {std} respectively")
+print(log_prob, loga_likelihood)
