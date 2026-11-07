@@ -33,7 +33,7 @@ This repository reflects an active, in-progress curriculum, not a finished produ
 
 - [x] Python OOP fundamentals — classes, inheritance, decorators, context managers, iterators/generators
 - [x] NumPy Level 1–2 — array foundations, vectorization
-- [ ] NumPy Level 3–8 — matrix math, broadcasting, biological data representation, statistics, simulation, performance
+- [x] NumPy Level 3–8 — matrix math, broadcasting, biological data representation, statistics, simulation, performance
 - [ ] pandas — cleaning, grouping, merging, time series
 - [ ] Biopython — sequence parsing, alignment, structural biology (`Bio.PDB`)
 - [ ] SciPy — statistics, signal processing, optimization
