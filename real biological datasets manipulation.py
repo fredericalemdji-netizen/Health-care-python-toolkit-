@@ -38,9 +38,9 @@ print(res_sum, np.mean(res_sum))
 var = np.var(res_sum)
 std = np.std(res_sum)
 
-copy = res_sum.copy()
-copy[-1] = 60
-m = np.std(copy)
+copy_err = res_sum.copy()
+copy_err[-1] = 60
+m = np.std(copy_err)
 print(m)
 
 
@@ -50,6 +50,13 @@ for _ in range(101):
 s = np.linspace(0, 1, 11)
 per = np.percentile(res_sum, q)
 quan =  np.quantile(res_sum, s)
+
+# prediction of IQR when value if forcefully changed
+per_err = np.percentile(copy_err, q)
+IQR_C = per_err[75] - per_err[25]
+print("IQR of wrong dataset", IQR_C)
+
+
 #print(per, quan)
 IQR = per[75] - per[25]
 print("the Interquartile range is", IQR)
